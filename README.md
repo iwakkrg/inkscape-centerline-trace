@@ -1,9 +1,13 @@
 inkscape-centerline-trace
 =========================
 
+> Inkscape 1.0.1 does have a centerline tracing option, but I find it to be very choppy no matter what settings I use.
+
+## Original readme
+
 A bitmap vectorizer that can trace along the centerline of a stroke. The builtin inkscape 'trace bitmap' can only trace edges, thus resulting in double lines for most basic use cases.
 
-Download <a href="https://github.com/fablabnbg/inkscape-centerline-trace/releases">Source code and Debian/Ubuntu package</a>
+Download <a href="https://github.com/iwakkrg/inkscape-centerline-trace/archive/master.zip">Source code</a>
 
 NOTE: This is python2 code. It was developed and tested with inkscape-0.92.3 -- It probably does not run with inkscape 1.0.1 and should not be needed. Inkscape 1.0.1 has the feature built-in under Path -> Trace Bitmap -> Centerline tracing (autotrace)
 
@@ -13,14 +17,13 @@ See centerline-tracing.svg for an illustration of the idea.
 
 In inkscape it shows up under Extensions -> Images -> Centerline Trace ...
 
-<a href="https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/centerline-trace-poster.svg"><img src="https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/centerline-trace-poster.png" /></a>
+<a href="centerline-trace-poster.svg"><img src="centerline-trace-poster.png" /></a>
 
 Installation hints
 ------------------
 * **Install the extension (all operating systems)**
     * the extension requires the installation of autotrace and python-pil (see below)
-    * grab a [binary package](https://github.com/fablabnbg/inkscape-centerline-trace/releases) **or**
-    * download the [zip file](https://github.com/fablabnbg/inkscape-centerline-trace/archive/master.zip) of [inkscape-centerline-trace](https://github.com/fablabnbg/inkscape-centerline-trace) and unpack it
+    * download the [zip file](https://github.com/iwakkrg/inkscape-centerline-trace/archive/master.zip) of [inkscape-centerline-trace](https://github.com/iwakkrg/inkscape-centerline-trace) and unpack it
     * copy the files centerline-trace.inx, centerline-trace.py to your Inkscape User extensions folder (see Edit > Preferences > System: System info: User extensions)
 * **Install autotrace / python-pil**
     * **Windows**
@@ -37,8 +40,8 @@ Installation hints
           + `sudo pip install pillow`
         * open a command line shell to install the inkscape extension:
           + `cd ~/.config/inkscape/extensions`
-          + `curl https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/centerline-trace.py -o centerline-trace.py`
-          + `curl https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/centerline-trace.inx -o centerline-trace.inx`
+          + `curl https://raw.githubusercontent.com/iwakkrg/inkscape-centerline-trace/master/centerline-trace.py -o centerline-trace.py`
+          + `curl https://raw.githubusercontent.com/iwakkrg/inkscape-centerline-trace/master/centerline-trace.inx -o centerline-trace.inx`
         * Please report success in the github issues. As of 2018-08-31, MacOS Support is back, but highly experimental.
     * **GNU/Linux**      
         * Install the autotrace DEB package version 0.40.0 or later from e.g. https://github.com/autotrace/autotrace/releases
@@ -47,7 +50,7 @@ Installation hints
 * Finally, restart inkscape, and find CenterlineTrace in the `Extensions -> Images` menue.
 * Since Inkscape 1.0 the Autotrace library including the CenterlineTrace feature is integrated. That should obsolete this extension. Find an entry in the new `Path -> Trace Bitmap` dialog.
 
-<center><a href="https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/testdata/20190528_195103.jpg"><img src="https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/testdata/20190528_195103.jpg" width="66%"/></a></center>
+<center><a href="testdata/20190528_195103.jpg"><img src="testdata/20190528_195103.jpg" width="66%"/></a></center>
 
 
 Algorithm
@@ -64,4 +67,4 @@ measure the total path length drawn.
 The svg that has the longest path but the least number of
 segments is returned.
 
-<a href="https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/testdata/3-images.svg"><img src="https://raw.githubusercontent.com/fablabnbg/inkscape-centerline-trace/master/centerline-trace-3-images-done.png" /></a>
+<a href="testdata/3-images.svg"><img src="centerline-trace-3-images-done.png" /></a>
